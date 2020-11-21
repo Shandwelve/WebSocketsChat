@@ -1,8 +1,8 @@
 class Client {
     name = null
 
-    constructor() {
-        this.socket = new WebSocket("ws://localhost:5678")
+    constructor(host, port) {
+        this.socket = new WebSocket(`ws://${host}:${port}`)
         this.makeBinds()
     }
 
@@ -83,6 +83,6 @@ class Client {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const client = new Client()
+    const client = new Client('localhost', 5678)
     client.login()
 })
